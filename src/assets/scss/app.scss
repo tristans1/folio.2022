@@ -1,4 +1,12 @@
 @import 'font';
+@import 'vars';
+@import 'utils';
+
+
+// =============================================================================
+// App
+// =============================================================================
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,12 +18,18 @@
     }
 }
 body {
-    font-family: $font-family-second;
-    background: #151515; // ou #151515 ou NOIIIIIR #2a2a2a
-    //width: 100%;
-    color: #dedede;
-    //height: 100%;
+    font-family: $font-family-main;
+    background-color: $app-background-color;
+    color: $app-color;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
+//canvas{
+//    position: relative;
+//    z-index: 10;
+//    pointer-events: none;
+//    opacity: 1;
+//}
 li {
     list-style: none;
 }

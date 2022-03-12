@@ -1,4 +1,67 @@
 // =============================================================================
-// VARS__ PROJECTS
+// Spacings
 // =============================================================================
+$hairline-spc: .1rem;
+$thin-spc: .2rem;
+$light-spc: .5rem;
+$normal-spc: 1rem;
+$medium-spc: 1.5rem;
+$semibold-spc: 2rem;
+$bold-spc: 4rem;
+$xbold-spc: 5rem;
+$black-spc: 6rem;
+
+// =============================================================================
+// Colors
+// =============================================================================
+
+$black-lighter-color: #2a2a2a;
+$black-main-color: #151515;
+$black-darker-color: #000000;
+
+$white-lighter-color: #dedede;
+$white-main-color: #dedede;
+$white-darker-color: #dedede;
+
+$red-main-color: #FF0000;
+
+// =============================================================================
+// Cursors
+// =============================================================================
+
+$cursor-link: ne-resize ;
+$cursor-grab: grab ;
+$cursor-pointer: pointer ;
+$cursor-cross: crosshair ;
+
+// =============================================================================
+// Mix-blend-mode
+// =============================================================================
+
+$mbm-revert-color: $red-main-color;
+$mbm-value: exclusion;
+
+
+// =============================================================================
+// App
+// =============================================================================
+$app-background-color: $black-darker-color;
+$app-color: $white-main-color;
+
+
+// =============================================================================
+// Works
+// =============================================================================
+
+$works-project-count: 9;
+$works-project-height: 168px; //145px;
+$works-project-width: 100%;
+
+$works-list-top: 5%;
+$works-list-left: 5%;
+$works-list-height: calc(100% - (#{$works-list-top} * 2));
+$works-list-width: calc(100% - (#{$works-list-left} * 2));;
+
+$works-container-width: 100%;
+$works-container-height: calc(#{$works-project-height} * #{$works-project-count} + #{$semibold-spc});
 

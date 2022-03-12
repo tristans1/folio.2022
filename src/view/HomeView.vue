@@ -4,100 +4,97 @@
         <main ref="main">
             <ul ref="ul">
                 <li ref="li">
-                    <div>
-                        <span>Q</span>
-                        <span>U</span>
-                        <span>A</span>
-                        <span>K</span>
-                        <span>E</span>
-                        <span>&nbsp;</span>
-                        <span>R</span>
-                        <span>E</span>
-                        <span>M</span>
-                        <span>A</span>
-                        <span>K</span>
-                        <span>E</span>
+                    <div class="project-container">
+                        <div class="project-letters">
+                            <span>Q</span>
+                            <span>U</span>
+                            <span>A</span>
+                            <span>K</span>
+                            <span>E</span>
+                            <span>&nbsp;</span>
+                            <span>R</span>
+                            <span>E</span>
+                            <span>M</span>
+                            <span>A</span>
+                            <span>K</span>
+                            <span>E</span>
+                        </div>
+                        <span class="project-context">3D/ Unity [ <span class="text-serif">2022</span> ]</span>
                     </div>
-                    <span class="context">3D/Unity • 2022</span>
+                    <span ref="link" class="project-link text-serif">see project &nbsp;
+                        <IconComponent icon="bi:arrow-right"/>
+                    </span>
                 </li>
                 <li ref="li">
-                    <div>
-
-                        <span>F</span>
-                        <span>O</span>
-                        <span>L</span>
-                        <span>I</span>
-                        <span>0</span>
-                        <span>&nbsp;</span>
-                        <span>.</span>
-                        <span>0</span>
-                        <span>1</span>
+                    <div class="project-container">
+                        <div class="project-letters">
+                            <span>F</span>
+                            <span>O</span>
+                            <span>L</span>
+                            <span>I</span>
+                            <span>0</span>
+                            <span>&nbsp;</span>
+                            <span>.</span>
+                            <span>0</span>
+                            <span>1</span>
+                        </div>
+                        <span class="project-context">UX/ Vue [ <span class="text-serif">2021</span> ]</span>
                     </div>
-                    <span class="context">UX/Vue.Js • 2021</span>
+                    <span ref="link" class="project-link text-serif">see project &nbsp;
+                        <IconComponent icon="bi:arrow-right"/>
+                    </span>
                 </li>
                 <li ref="li">
-                    <div>
-                        <span>R</span>
-                        <span>O</span>
-                        <span>O</span>
-                        <span>M</span>
+                    <div class="project-container">
+                        <div class="project-letters">
+                            <span>R</span>
+                            <span>O</span>
+                            <span>O</span>
+                            <span>M</span>
+                        </div>
+                        <span class="project-context">3D/ three.js/  WebGL [ <span class="text-serif">2021</span> ]</span>
                     </div>
-                    <span class="context">3D / three.js / WebGL • 2021</span>
+                    <span ref="link" class="project-link text-serif">see project &nbsp;
+                        <IconComponent icon="bi:arrow-right"/>
+                    </span>
                 </li>
                 <li ref="li">
-                    <div>
-                        <span>T</span>
-                        <span>I</span>
-                        <span>M</span>
-                        <span>&nbsp;</span>
-                        <span>B</span>
-                        <span>U</span>
-                        <span>R</span>
-                        <span>T</span>
-                        <span>O</span>
-                        <span>N</span>
+                    <div class="project-container">
+                        <div class="project-letters">
+                            <span>T</span>
+                            <span>I</span>
+                            <span>M</span>
+                            <span>&nbsp;</span>
+                            <span>B</span>
+                            <span>U</span>
+                            <span>R</span>
+                            <span>T</span>
+                            <span>O</span>
+                            <span>N</span>
+                        </div>
+                        <span class="project-context">UX/ Web Development/ Vue [ <span class="text-serif">2019</span> ]</span>
                     </div>
-                    <span class="context">Web Design / Vue.js • 2019</span>
+                    <span ref="link" class="project-link text-serif">see project &nbsp;
+                        <IconComponent icon="bi:arrow-right"/>
+                    </span>
                 </li>
                 <li ref="li">
-                    <div>
-                        <span>S</span>
-                        <span>&nbsp;</span>
-                        <span></span>
-                        <span>N</span>
-                        <span>'</span>
-                        <span>&nbsp;</span>
-                        <span>R</span>
+                    <div class="project-container">
+                        <div class="project-letters">
+                            <span>S</span>
+                            <span>N</span>
+                            <span>'</span>
+                            <span>R</span>
+                        </div>
+                        <span class="project-context">UX UI/ Web Development [ <span class="text-serif">2019</span> ]</span>
                     </div>
-                    <span class="context">Landing Page / JS • 2019</span>
-                </li>
-                <li ref="li">
-                    <div>
-                        <span>P</span>
-                        <span>R</span>
-                        <span>O</span>
-                        <span>J</span>
-                        <span>E</span>
-                        <span>C</span>
-                        <span>T</span>
-                        <span>1</span>
-                    </div>
-                    <span class="context">UX/UI WebGL • 2021</span>
-                </li>
-                <li ref="li">
-                    <div>
-                        <span>P</span>
-                        <span>R</span>
-                        <span>O</span>
-                        <span>J</span>
-                        <span>E</span>
-                        <span>C</span>
-                        <span>T</span>
-                        <span>3</span>
-                    </div>
-                    <span class="context">UX/UI WebGL • 2021</span>
+                    <span ref="link" class="project-link text-serif">see project &nbsp;
+                        <IconComponent icon="bi:arrow-right"/>
+                    </span>
                 </li>
                 <li ref="li">PROJECT4</li>
+                <li ref="li">PROJECT5</li>
+                <li ref="li">PROJECT5</li>
                 <li ref="li">PROJECT5</li>
             </ul>
         </main>
@@ -126,8 +123,9 @@
                 camera: null,
                 container: null,
                 isHover: false,
-                links: [],
+                projects: [],
                 lastScrollOffset : 0,
+                linkIsHover: false,
                 mesh: null,
                 offset: null,
                 perspective: null,
@@ -160,7 +158,7 @@
             },
             runScene() {
                 this.container = this.$refs.main;
-                this.links = document.querySelectorAll('li');
+                this.projects = this.$el.querySelectorAll('li');
                 this.scene = new THREE.Scene();
                 this.perspective = 1000;
                 this.sizes = new THREE.Vector2(0, 0);
@@ -170,8 +168,8 @@
                     uAlpha: {value: 0.0},
                     uOffset: {value: new THREE.Vector2(0.0, 0.0)},
                 };
-                this.links.forEach((link, index) => {
-                    link.addEventListener('mouseenter', () => {
+                this.projects.forEach((project, index) => {
+                    project.addEventListener('mouseenter', () => {
                         switch (index) {
                             case 0:
                                 this.uniforms.uTexture.value = this.textureOne;
@@ -198,6 +196,7 @@
                     });
                 });
                 this.listeners(this.$refs.ul);
+                this.listenersLink(this.$el.querySelectorAll('span.project-link'));
                 this.setupCamera();
                 this.onMouseMove();
                 this.onScrollMove();
@@ -212,6 +211,18 @@
                 el.addEventListener('mouseleave', () => {
                     this.isHover = false;
                 });
+
+            },
+
+            listenersLink(el) {
+                el.forEach((link) => {
+                    link.addEventListener('mouseenter', () => {
+                        this.linkIsHover = true;
+                    });
+                    link.addEventListener('mouseleave', () => {
+                        this.linkIsHover = false;
+                    });
+                })
 
             },
 
@@ -262,14 +273,12 @@
             },
 
 
-            render() { //@todo revoir sur les dimensions du viewport => bruno simon + souris scroll
-                // const scrollOffset = lerp(0, window.pageYOffset, 0.1) * 0.5;
+            render() {
                 this.offset.x = lerp(this.offset.x, this.targetX, 0.1);
                 this.offset.y = lerp(this.offset.y , this.targetY, 0.1);
 
                 this.uniforms.uOffset.value.set((this.targetX - this.offset.x) * 0.0005, - (this.targetY - this.offset.y) * 0.0005);
                 this.mesh.position.set(this.offset.x - (this.viewport.width / 2), -this.offset.y + ((this.viewport.height)/2));
-                //this.mesh.position.set(this.offset.x - (window.innerWidth / 2), - (mouseY))
                 this.renderer.setSize(this.viewport.width, this.viewport.height);
                 this.renderer.render(this.scene, this.camera);
 
@@ -277,10 +286,14 @@
                     this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 1.0, 0.1) :
                     this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 0.0, 0.1);
 
-                for (let i = 0; i < this.links.length; i++){
-                    this.isHover ? this.links[i].style.opacity = 0.2 : this.links[i].style.opacity = 1;
-                }
+                //this.linkIsHover ?
+                    // this.mesh.scale.set(lerp(this.sizes.x, 1, .5), lerp(this.sizes.y, 0, .5)) :
+                    // this.mesh.scale.set(this.sizes.x, this.sizes.y);
 
+                for (let i = 0; i < this.projects.length; i++){
+                    this.isHover ? this.projects[i].style.opacity = 0.3 : this.projects[i].style.opacity = 1;
+
+                }
 
                 requestAnimationFrame(this.render.bind(this));
             },
@@ -304,56 +317,40 @@
 </script>
 <style scoped lang="scss">
     @import "../assets/scss/font";
-    //.head{
-    //    height: 100vh;
-    //    left: 0;
-    //    top: 0;
-    //    width: 100%;
-    //    background: rebeccapurple;
-    //    content: ''
-    //}
+    @import "../assets/scss/vars";
 
     main {
-        //position: absolute;
-        //top: 100vh;
-        //top: 0;
-        //left: 0;
-        width: 100%;
-        height: 175vh; // @todo : taille a revoir dans une variable
+        width: $works-container-width;
+        height: $works-container-height;
         ul {
             display: flex;
             position: absolute;
             flex-direction: column;
             justify-content: space-between;
-            //top: 20%;
-            top: 5%;
-            left: 1rem;
-            width: calc(100% - 2rem);
-            height: 90%;
+            top: $works-list-top;
+            left: $works-list-left;
+            width: $works-list-width;
+            height: $works-list-height;
+            padding-left: $normal-spc;
+            padding-right: $normal-spc;
             li {
+                max-height: $works-project-height;
                 position: relative;
                 display: flex;
-                flex-direction: column;
+                align-items: center;
                 font-family: $font-family-second;
-                mix-blend-mode: exclusion;
+                mix-blend-mode: $mbm-value;
                 height: 100%;
-                padding: 1rem;
+                padding: $normal-spc;
                 font-size: 5rem;
-                list-style: none;
-                //border-bottom: 1px solid #dedede;
-                //cursor: pointer;
                 transition: 1s;
-                //-webkit-text-stroke-width: 1px;
-                //-webkit-text-stroke-color: #383838;
-                //color: transparent !important;
-                color: #acacac;
-                cursor: ne-resize;
+                cursor: $cursor-cross;
                 &:after,
                 &:before {
                     content: "";
                     position: absolute;
                     height: 1px;
-                    background: #dedede;
+                    background: $white-main-color;
                     left: 0;
                     right: 0;
                     opacity: .2 !important;
@@ -365,24 +362,45 @@
                     bottom: 0;
                 }
 
-                div > span{
-                    transform-origin: left;
-                    transition: .5s;
-                    font-size: 5rem;
-                    &:hover {
-                        color: red;
-                        font-stretch: expanded;
+                .project-container {
+                    display: flex;
+                    flex-direction: column;
+                    .project-letters > span {
+                        transform-origin: left;
+                        transition: .5s;
+                        font-size: 5rem;
+                        &:hover {
+                            color: $mbm-revert-color;
+                        }
+                    }
+                    .project-context {
+                        font-size: 1rem;
+                        line-height: 2.5rem;
+                        padding-left: $normal-spc;
+                        font-family: $font-family-main;
+                        bottom: 10px;
+                        //.year{
+                        //    font-family: $font-family-third;
+                        //    font-weight: $semibold-weight;
+                        //    font-style: italic;
+                        //}
                     }
                 }
-                span.context {
-                    font-size: .7rem;
-                    letter-spacing: .4rem;
-                    //position: absolute;
-                    //left: 4rem;
-                    padding-left: 1rem;
-                    font-family: $font-family-third;
-                    bottom: 5px;
+                .project-link {
+                    font-size: 1rem;
+                    line-height: 2.5rem;
+                    height: fit-content;
+                    text-align: center;
+                    margin-left: auto;
+                    opacity: 0;
+                    transition: 1s;
+                    display: flex;
+                    align-items: center;
+                    &:hover{
+                        cursor: $cursor-link;
+                    }
                 }
+
                 &:first-of-type{
                     &:before{
                         content: none !important;
@@ -395,6 +413,10 @@
                 }
                 &:hover{
                     opacity: 1 !important;
+                    padding-left: $semibold-spc;
+                    .project-link {
+                        opacity: 1 !important;
+                    }
                     &:after {
                         //opacity: .!important;
                     }

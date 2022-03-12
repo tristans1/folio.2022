@@ -1,9 +1,8 @@
 @import 'mixins';
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
 
-//@include font-face(Pano, '/fonts/pano/Pano-Trial-Regular', null, null, tff );
-//@include font-face(Pano-bold, '/fonts/pano/Pano-Trial-Bold', null, null, tff);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 @font-face {
     font-family: 'Pano';
     src: url("/fonts/pano/Pano-Trial-Regular.ttf");
@@ -13,18 +12,18 @@
     src: url("/fonts/pano/Pano-Trial-Bold.ttf");
 }
 
-
-
 // =============================================================================
 // Font Families
 // =============================================================================
-$font-family-main: 'Pano', serif;
+
+$font-family-main: 'Open Sans', serif;
 $font-family-second: 'Pano Bold', sans-serif;
-$font-family-third: 'Poppins', sans-serif;
+$font-family-third: 'Noto Serif Display', sans-serif;
 
 // =============================================================================
 // Font Weight
 // =============================================================================
+
 $hairline-weight: 100;
 $thin-weight: 200;
 $light-weight: 300;
