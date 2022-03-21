@@ -62,6 +62,6 @@ $works-list-left: 5%;
 $works-list-height: calc(100% - (#{$works-list-top} * 2));
 $works-list-width: calc(100% - (#{$works-list-left} * 2));;
 
-$works-container-width: 100%;
+$works-container-width: 100vw;
 $works-container-height: calc(#{$works-project-height} * #{$works-project-count} + #{$semibold-spc});
 
