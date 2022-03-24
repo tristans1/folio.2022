@@ -8,22 +8,22 @@ export default new Router({
         {
             path: '/',
             name: 'HomeView',
-            component: () => import('../view/HomeView'),
+            component: () => import('../views/HomeView'),
         },
         {
             path: '/works',
             name: 'WorksView',
-            component: () => import('../view/WorksView'),
+            component: () => import('../views/WorksView'),
         },
         {
             path: '/about',
             name: 'AboutView',
-            component: () => import('../view/AboutView'),
+            component: () => import('../views/AboutView'),
         },
         {
             path: '/about',
             name: 'ContactView',
-            component: () => import('../view/ContactView'),
+            component: () => import('../views/ContactView'),
         },
     ],
 });
