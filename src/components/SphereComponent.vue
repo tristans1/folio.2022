@@ -6,6 +6,7 @@
     import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
     import {FlakesTexture} from 'three/examples/jsm/textures/FlakesTexture';
     import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
+    import threeMixin from '../mixins/threeMixin';
 
     export default {
         name: 'SphereComponent',
@@ -21,59 +22,21 @@
                 viewport: null
             };
         },
+        mixins: [threeMixin],
         mounted() {
-            this.setViewport();
-            this.runScene();
+            this.container = this.$refs.main;
+            this.viewport = this.setViewportSize(this.container)
+            this.createScene();
 
         },
         methods: {
             onWindowResize() {
-               this.setViewport();
+                //  redefine the viewport
+                this.viewport = this.setViewportSize(this.container)
 
                 this.camera.aspect = this.viewport.aspectRatio;
                 this.renderer.setSize(this.viewport.width, this.viewport.height);
                 this.camera.updateProjectionMatrix();
-            },
-
-
-            runScene() {
-                window.addEventListener('resize', this.onWindowResize.bind(this));
-                this.scene = new THREE.Scene();
-
-                this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-                this.renderer.setSize(this.viewport.width, this.viewport.height);
-                this.renderer.setPixelRatio(window.devicePixelRatio);
-
-                this.camera = new THREE.PerspectiveCamera(50, this.viewport.width / this.viewport.height, 1, 1000);
-                this.camera.position.set(0, 0, 600);
-
-                this.createControls();
-
-                this.createLight();
-
-                this.createSphere();
-
-                this.container.appendChild(this.renderer.domElement);
-                this.renderer.outputEncoding = THREE.sRGBEncoding;
-                this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-                this.renderer.toneMappingExposure = 1.25;
-
-
-                this.render();
-            },
-
-            setViewport() {
-                this.container = this.$refs.main;
-
-                const width = this.container.clientWidth;
-                const height = this.container.clientHeight;
-                const aspectRatio = width / height;
-
-                this.viewport = {
-                    width,
-                    height,
-                    aspectRatio,
-                };
             },
 
             createControls() {
@@ -94,6 +57,30 @@
                 this.scene.add(this.pointLight);
                 this.scene.add(blueLight);
 
+            },
+
+            createScene() {
+                window.addEventListener('resize', this.onWindowResize.bind(this));
+                this.scene = new THREE.Scene();
+
+                this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+                this.renderer.setSize(this.viewport.width, this.viewport.height);
+                this.renderer.setPixelRatio(window.devicePixelRatio);
+
+                this.setUpCamera();
+
+                this.createControls();
+
+                this.createLight();
+
+                this.createSphere();
+
+                this.container.appendChild(this.renderer.domElement);
+                this.renderer.outputEncoding = THREE.sRGBEncoding;
+                this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+                this.renderer.toneMappingExposure = 1.25;
+
+                this.render();
             },
 
             createSphere(){
@@ -123,10 +110,6 @@
                     const sphereGeometry = new THREE.SphereGeometry(100, 64, 64);
                     const sphereMat = new THREE.MeshPhysicalMaterial(sphereMaterial);
 
-                    // const shader = new THREE.ShaderMaterial({
-                    //     vertexShader: `vec3 rgb = vNormal * 0.5 + 0.5;
-                    //        vec4 diffuseColor = vec4(rgb, 1.); `
-                    // })
                     this.sphere = new THREE.Mesh(sphereGeometry, sphereMat);
 
                     this.scene.add(this.sphere);
@@ -139,6 +122,10 @@
 
                 requestAnimationFrame(this.render);
             },
+            setUpCamera() {
+                this.camera = new THREE.PerspectiveCamera(50, this.viewport.width / this.viewport.height, 1, 1000);
+                this.camera.position.set(0, 0, 600);
+            }
         },
 
     };

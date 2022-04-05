@@ -115,8 +115,9 @@
 <script>
     import * as THREE from 'three';
     import images from '../assets/js/images';
-    import vertex from '../assets/shaders/vertex';
-    import fragment from '../assets/shaders/fragment';
+    import vertex from '../assets/shaders/works/vertex';
+    import fragment from '../assets/shaders/works/fragment';
+    import threeMixin from '../mixins/threeMixin';
     import {lerp} from '../utils/lerp';
 
     export default {
@@ -127,8 +128,8 @@
                 container: null,
                 isHover: false,
                 projects: [],
-                lastScrollOffset: 0,
                 linkIsHover: false,
+                lastScrollOffset: 0,
                 mesh: null,
                 offset: null,
                 perspective: null,
@@ -136,8 +137,10 @@
                 scene: null,
                 sizes: null,
                 scrollOffset: null,
-                targetX: 0,
-                targetY: 0,
+                target : {
+                    x: 0,
+                    y: 0
+                },
                 textureOne: null,
                 textureTwo: null,
                 textureThree: null,
@@ -147,21 +150,32 @@
                 viewport: null,
             };
         },
-
+        mixins : [threeMixin],
         mounted() {
-            this.setViewport();
+            // initialize container, target and viewport
+            this.container = this.$refs.main;
+            this.viewport = this.setViewportSize(this.container);
+
             this.loadImages();
-            this.runScene();
+            this.createScene();
         },
         methods: {
-            loadImages() {
-                this.textureOne = new THREE.TextureLoader().load(images.robot);
-                this.textureTwo = new THREE.TextureLoader().load(images.folio);
-                this.textureThree = new THREE.TextureLoader().load(images.sculpture);
-                this.textureFour = new THREE.TextureLoader().load(images.tim);
-                this.textureFive = new THREE.TextureLoader().load(images.dino);
+            createMesh() {
+                const geometry = new THREE.PlaneGeometry(1, 1, 20, 20);
+                const material = new THREE.ShaderMaterial({
+                    uniforms: this.uniforms,
+                    vertexShader: vertex,
+                    fragmentShader: fragment,
+                    transparent: true,
+                });
+
+                this.mesh = new THREE.Mesh(geometry, material);
+                this.sizes.set(250, 350);
+                this.mesh.scale.set(this.sizes.x, this.sizes.y);
+                this.mesh.position.set(this.offset.x, this.offset.y, 0);
+                this.scene.add(this.mesh);
             },
-            runScene() {
+            createScene() {
                 this.projects = this.$el.querySelectorAll('li');
                 this.scene = new THREE.Scene();
                 this.perspective = 1000;
@@ -199,16 +213,22 @@
                         }
                     });
                 });
-                this.listeners(this.$refs.ul);
-                this.listenersLink(this.$el.querySelectorAll('span.project-link'));
-                this.setupCamera();
+                this.onMouseHover(this.$refs.ul);
+                this.onMouseHoverLink(this.$el.querySelectorAll('span.project-link'));
+                this.setUpCamera();
                 this.onMouseMove();
                 this.onScrollMove();
                 this.createMesh();
                 this.render();
             },
-
-            listeners(el) {
+            loadImages() {
+                this.textureOne = new THREE.TextureLoader().load(images.robot);
+                this.textureTwo = new THREE.TextureLoader().load(images.folio);
+                this.textureThree = new THREE.TextureLoader().load(images.sculpture);
+                this.textureFour = new THREE.TextureLoader().load(images.tim);
+                this.textureFive = new THREE.TextureLoader().load(images.dino);
+            },
+            onMouseHover(el) {
                 el.addEventListener('mouseenter', () => {
                     this.isHover = true;
                 });
@@ -217,8 +237,7 @@
                 });
 
             },
-
-            listenersLink(el) {
+            onMouseHoverLink(el) {
                 el.forEach((link) => {
                     link.addEventListener('mouseenter', () => {
                         this.linkIsHover = true;
@@ -229,83 +248,20 @@
                 })
 
             },
-
-            setupCamera() {
-                window.addEventListener('resize', this.onWindowResize.bind(this));
-                const fov = (180 * (2 * Math.atan(this.viewport.height / 2 / this.perspective))) / Math.PI;
-                this.camera = new THREE.PerspectiveCamera(fov, this.viewport.aspectRatio, 0.1, 1000);
-                this.camera.position.set(0, 0, this.perspective);
-                this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true}); // avant était ecrit WebGL1Renderer
-                this.renderer.setSize(this.viewport.width, this.viewport.height);
-                this.renderer.setPixelRatio(window.devicePixelRatio);
-                this.container.appendChild(this.renderer.domElement);
-            },
-
             onWindowResize() {
-                /**
-                 * Toujours redéfinir le viewport
-                 * */
-                this.setViewport();
+                // redefine the viewport
+                this.viewport = this.setViewportSize(this.container);
 
                 this.camera.aspect = this.viewport.aspectRatio;
                 this.camera.fov = (180 * (2 * Math.atan(this.viewport.height / 2 / this.perspective))) / Math.PI;
                 this.renderer.setSize(this.viewport.width, this.viewport.height);
                 this.camera.updateProjectionMatrix();
             },
-
-            onMouseMove() {
-                window.addEventListener('mousemove', (e) => {
-                    this.targetX = e.clientX;
-                    this.targetY = e.clientY + window.pageYOffset;
-                });
-            },
-            onScrollMove() {
-                window.addEventListener('scroll', () => {
-                    this.targetY += window.pageYOffset - this.lastScrollOffset;
-                    this.lastScrollOffset = window.pageYOffset;
-                });
-            },
-
-            createMesh() {
-                const geometry = new THREE.PlaneGeometry(1, 1, 20, 20);
-                const material = new THREE.ShaderMaterial({
-                    uniforms: this.uniforms,
-                    vertexShader: vertex,
-                    fragmentShader: fragment,
-                    transparent: true,
-                });
-                this.mesh = new THREE.Mesh(geometry, material);
-                this.sizes.set(250, 350);
-                this.mesh.scale.set(this.sizes.x, this.sizes.y);
-                this.mesh.position.set(this.offset.x, this.offset.y, 0);
-                this.scene.add(this.mesh);
-            },
-
-            setViewport(){
-                /**
-                 * le viewport définit les dimensions du container (canvas)
-                 * width doit toujours être initialisé à la valeur de l'él. qui définit le canvas : this.$refs.main.clientWidth
-                 * la taille de l'él. est donc la taille de this.$refs.main => <main>
-                 **/
-
-                this.container = this.$refs.main;
-
-                const width = this.container.clientWidth;
-                const height = this.container.clientHeight;
-                const aspectRatio = width / height;
-
-                this.viewport = {
-                    width,
-                    height,
-                    aspectRatio,
-                };
-            },
-
             render() {
-                this.offset.x = lerp(this.offset.x, this.targetX, 0.1);
-                this.offset.y = lerp(this.offset.y, this.targetY, 0.1);
+                this.offset.x = lerp(this.offset.x, this.target.x, 0.1);
+                this.offset.y = lerp(this.offset.y, this.target.y, 0.1);
 
-                this.uniforms.uOffset.value.set((this.targetX - this.offset.x) * 0.0005, -(this.targetY - this.offset.y) * 0.0005);
+                this.uniforms.uOffset.value.set((this.target.x - this.offset.x) * 0.0005, -(this.target.y - this.offset.y) * 0.0005);
                 this.mesh.position.set(this.offset.x - (this.viewport.width / 2), -this.offset.y + ((this.viewport.height) / 2));
                 this.renderer.setSize(this.viewport.width, this.viewport.height);
                 this.renderer.render(this.scene, this.camera);
@@ -314,16 +270,20 @@
                     this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 1.0, 0.1) :
                     this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 0.0, 0.1);
 
-                //this.linkIsHover ?
-                // this.mesh.scale.set(lerp(this.sizes.x, 1, .5), lerp(this.sizes.y, 0, .5)) :
-                // this.mesh.scale.set(this.sizes.x, this.sizes.y);
-
                 for (let i = 0; i < this.projects.length; i++) {
                     this.isHover ? this.projects[i].style.opacity = 0.3 : this.projects[i].style.opacity = 1;
-
                 }
-
                 requestAnimationFrame(this.render.bind(this));
+            },
+            setUpCamera() {
+                window.addEventListener('resize', this.onWindowResize.bind(this));
+                const fov = (180 * (2 * Math.atan(this.viewport.height / 2 / this.perspective))) / Math.PI;
+                this.camera = new THREE.PerspectiveCamera(fov, this.viewport.aspectRatio, 0.1, 1000);
+                this.camera.position.set(0, 0, this.perspective);
+                this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true}); // avant était ecrit WebGL1Renderer
+                this.renderer.setSize(this.viewport.width, this.viewport.height);
+                this.renderer.setPixelRatio(window.devicePixelRatio);
+                this.container.appendChild(this.renderer.domElement);
             },
 
         },
