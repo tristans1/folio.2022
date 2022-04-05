@@ -129,7 +129,6 @@
                 isHover: false,
                 projects: [],
                 linkIsHover: false,
-                lastScrollOffset: 0,
                 mesh: null,
                 offset: null,
                 perspective: null,
